@@ -1,15 +1,67 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fond</title>
+    <title>Mobile Optimized Site</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .content {
+            display: none;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <div id="main">
-        <h1>FOND</h1>
-        <p>soon</p>
-        <button id="buy">Buy</button>
+    <h1>Оберіть</h1>
+    <select id="dropdown1" onchange="showContent()">
+        <option value="">Виберіть опцію</option>
+        <option value="option1">Опція 1</option>
+        <option value="option2">Опція 2</option>
+    </select>
+    <select id="dropdown2" onchange="showContent()">
+        <option value="">Виберіть опцію</option>
+        <option value="option1">Опція 1</option>
+        <option value="option2">Опція 2</option>
+    </select>
+    <div id="content" class="content">
+        <div class="buttons">
+            <button onclick="showBanks()">Банки</button>
+            <button onclick="showCrypto()">Криптовалюта</button>
+        </div>
+        <div id="banks" class="content">
+            <h2>Банки</h2>
+            <p>Контент про банки...</p>
+        </div>
+        <div id="crypto" class="content">
+            <h2>Криптовалюта</h2>
+            <p>Контент про криптовалюту...</p>
+        </div>
     </div>
+    <script>
+        function showContent() {
+            const dropdown1 = document.getElementById('dropdown1').value;
+            const dropdown2 = document.getElementById('dropdown2').value;
+            if (dropdown1 && dropdown2) {
+                document.getElementById('content').style.display = 'block';
+            } else {
+                document.getElementById('content').style.display = 'none';
+            }
+        }
+        function showBanks() {
+            document.getElementById('banks').style.display = 'block';
+            document.getElementById('crypto').style.display = 'none';
+        }
+        function showCrypto() {
+            document.getElementById('banks').style.display = 'none';
+            document.getElementById('crypto').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
