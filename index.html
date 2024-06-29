@@ -7,20 +7,23 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
         }
         .header {
-            background-color: #fff;
+            background-color: var(--header-bg-color);
             padding: 10px;
             text-align: center;
+            transition: background-color 0.3s, color 0.3s;
         }
         .logo {
-            color: red;
+            color: var(--logo-color);
             font-size: 24px;
             position: absolute;
             top: 10px;
             right: 10px;
         }
         .become-client {
+            color: var(--become-client-color);
             position: absolute;
             top: 10px;
             left: 10px;
@@ -37,28 +40,59 @@
             margin-bottom: 20px;
             display: inline-block;
             border: none;
-            border-bottom: solid thin #ccc;
+            border-bottom: solid thin var(--input-border-color);
             box-sizing: border-box;
+            background-color: var(--input-bg-color);
+            color: var(--input-text-color);
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
         }
         button {
-            background-color: #4CAF50;
-            color: white;
+            background-color: var(--button-bg-color);
+            color: var(--button-text-color);
             padding: 14px 20px;
             margin: 8px 0;
             border: none;
             cursor: pointer;
             width: 100%;
+            transition: background-color 0.3s, color 0.3s;
         }
         button:hover {
             opacity: 0.8;
         }
+        /* Светлая тема */
+        body.light-theme {
+            --header-bg-color: #fff;
+            --logo-color: red;
+            --become-client-color: black;
+            --input-border-color: #ccc;
+            --input-bg-color: #fff;
+            --input-text-color: #000;
+            --button-bg-color: #4CAF50;
+            --button-text-color: white;
+            background-color: #fff;
+            color: #000;
+        }
+        /* Темная тема */
+        body.dark-theme {
+            --header-bg-color: #333;
+            --logo-color: red;
+            --become-client-color: white;
+            --input-border-color: #555;
+            --input-bg-color: #555;
+            --input-text-color: #fff;
+            --button-bg-color: #444;
+            --button-text-color: white;
+            background-color: #222;
+            color: #fff;
+        }
     </style>
 </head>
-<body>
+<body class="light-theme">
     <div class="header">
         <div class="logo">A</div>
         <div class="become-client">Стать клиентом</div>
         <!-- Здесь можно добавить навигацию и опции профиля -->
+        <button onclick="toggleTheme()">Переключить тему</button>
     </div>
     <div class="login-container">
         <form action="/submit-login" method="post">
@@ -70,5 +104,12 @@
             <!-- Здесь можно добавить информацию о балансе или транзакциях -->
         </form>
     </div>
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            body.classList.toggle('dark-theme');
+            body.classList.toggle('light-theme');
+        }
+    </script>
 </body>
 </html>
