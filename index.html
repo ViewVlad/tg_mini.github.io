@@ -3,113 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вход в интернет-банк</title>
+    <title>Вход в интернет-банк | Интернет-банкинг</title>
+    <meta name="description" content="Вход в интернет-банк. Легко и безопасно управляйте своими финансами онлайн.">
     <style>
         body {
             font-family: Arial, sans-serif;
-            transition: background-color 0.3s, color 0.3s;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
         }
         .header {
-            background-color: var(--header-bg-color);
-            padding: 10px;
-            text-align: center;
-            transition: background-color 0.3s, color 0.3s;
+            background-color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .logo {
-            color: var(--logo-color);
+            color: red;
             font-size: 24px;
-            position: absolute;
-            top: 10px;
-            right: 10px;
         }
         .become-client {
-            color: var(--become-client-color);
-            position: absolute;
-            top: 10px;
-            left: 10px;
+            color: #4CAF50;
+            text-decoration: none;
+            font-size: 16px;
         }
         .login-container {
             width: 300px;
-            margin: auto;
-            padding-top: 50px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 8px;
         }
         input[type="text"],
         input[type="password"] {
             width: 100%;
             padding: 12px;
-            margin-bottom: 20px;
-            display: inline-block;
-            border: none;
-            border-bottom: solid thin var(--input-border-color);
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
             box-sizing: border-box;
-            background-color: var(--input-bg-color);
-            color: var(--input-text-color);
-            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
         }
         button {
-            background-color: var(--button-bg-color);
-            color: var(--button-text-color);
+            background-color: #4CAF50;
+            color: white;
             padding: 14px 20px;
             margin: 8px 0;
             border: none;
+            border-radius: 4px;
             cursor: pointer;
             width: 100%;
-            transition: background-color 0.3s, color 0.3s;
+            font-size: 16px;
         }
         button:hover {
-            opacity: 0.8;
+            opacity: 0.9;
         }
-        /* Светлая тема */
-        body.light-theme {
-            --header-bg-color: #fff;
-            --logo-color: red;
-            --become-client-color: black;
-            --input-border-color: #ccc;
-            --input-bg-color: #fff;
-            --input-text-color: #000;
-            --button-bg-color: #4CAF50;
-            --button-text-color: white;
+        .footer {
             background-color: #fff;
-            color: #000;
+            padding: 10px 20px;
+            text-align: center;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            bottom: 0;
         }
-        /* Темная тема */
-        body.dark-theme {
-            --header-bg-color: #333;
-            --logo-color: red;
-            --become-client-color: white;
-            --input-border-color: #555;
-            --input-bg-color: #555;
-            --input-text-color: #fff;
-            --button-bg-color: #444;
-            --button-text-color: white;
-            background-color: #222;
-            color: #fff;
+        .footer a {
+            color: #4CAF50;
+            text-decoration: none;
+            margin: 0 10px;
         }
     </style>
 </head>
-<body class="light-theme">
+<body>
     <div class="header">
         <div class="logo">A</div>
-        <div class="become-client">Стать клиентом</div>
-        <!-- Здесь можно добавить навигацию и опции профиля -->
-        <button onclick="toggleTheme()">Переключить тему</button>
+        <a href="#" class="become-client">Стать клиентом</a>
+        <!-- Add navigation here if needed -->
     </div>
     <div class="login-container">
         <form action="/submit-login" method="post">
             <label for="login">Логин</label>
-            <input type="text" id="login" name="login">
+            <input type="text" id="login" name="login" required>
             <label for="password">Пароль</label>
-            <input type="password" id="password" name="password">
+            <input type="password" id="password" name="password" required>
             <button type="submit">Войти в систему</button>
-            <!-- Здесь можно добавить информацию о балансе или транзакциях -->
+            <!-- Add additional info here if needed -->
         </form>
     </div>
-    <script>
-        function toggleTheme() {
-            const body = document.body;
-            body.classList.toggle('dark-theme');
-            body.classList.toggle('light-theme');
-        }
-    </script>
+    <div class="footer">
+        <p>Контакты: <a href="tel:+1234567890">+1 (234) 567-890</a> | <a href="mailto:info@example.com">info@example.com</a></p>
+        <p>Следите за нами: <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a></p>
+    </div>
 </body>
 </html>
