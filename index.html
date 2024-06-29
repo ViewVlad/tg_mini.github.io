@@ -1,67 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Optimized Site</title>
+    <title>Вход в интернет-банк</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color: #fff;
+            padding: 10px;
             text-align: center;
-            padding: 20px;
         }
-        .content {
-            display: none;
+        .logo {
+            color: red;
+            font-size: 24px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
         }
-        .buttons {
-            margin-top: 20px;
+        .become-client {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        .login-container {
+            width: 300px;
+            margin: auto;
+            padding-top: 50px;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            display: inline-block;
+            border: none;
+            border-bottom: solid thin #ccc;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
-    <h1>Оберіть</h1>
-    <select id="dropdown1" onchange="showContent()">
-        <option value="">Виберіть опцію</option>
-        <option value="option1">Опція 1</option>
-        <option value="option2">Опція 2</option>
-    </select>
-    <select id="dropdown2" onchange="showContent()">
-        <option value="">Виберіть опцію</option>
-        <option value="option1">Опція 1</option>
-        <option value="option2">Опція 2</option>
-    </select>
-    <div id="content" class="content">
-        <div class="buttons">
-            <button onclick="showBanks()">Банки</button>
-            <button onclick="showCrypto()">Криптовалюта</button>
-        </div>
-        <div id="banks" class="content">
-            <h2>Банки</h2>
-            <p>Контент про банки...</p>
-        </div>
-        <div id="crypto" class="content">
-            <h2>Криптовалюта</h2>
-            <p>Контент про криптовалюту...</p>
-        </div>
+    <div class="header">
+        <div class="logo">A</div>
+        <div class="become-client">Стать клиентом</div>
+        <!-- Здесь можно добавить навигацию и опции профиля -->
     </div>
-    <script>
-        function showContent() {
-            const dropdown1 = document.getElementById('dropdown1').value;
-            const dropdown2 = document.getElementById('dropdown2').value;
-            if (dropdown1 && dropdown2) {
-                document.getElementById('content').style.display = 'block';
-            } else {
-                document.getElementById('content').style.display = 'none';
-            }
-        }
-        function showBanks() {
-            document.getElementById('banks').style.display = 'block';
-            document.getElementById('crypto').style.display = 'none';
-        }
-        function showCrypto() {
-            document.getElementById('banks').style.display = 'none';
-            document.getElementById('crypto').style.display = 'block';
-        }
-    </script>
+    <div class="login-container">
+        <form action="/submit-login" method="post">
+            <label for="login">Логин</label>
+            <input type="text" id="login" name="login">
+            <label for="password">Пароль</label>
+            <input type="password" id="password" name="password">
+            <button type="submit">Войти в систему</button>
+            <!-- Здесь можно добавить информацию о балансе или транзакциях -->
+        </form>
+    </div>
 </body>
 </html>
