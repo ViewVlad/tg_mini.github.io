@@ -80,6 +80,8 @@
 </head>
 <body>
 
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    
 
     <div class="header">
         <div class="logo">A</div>
@@ -102,7 +104,6 @@
 
     </div>
 
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
     <script>
         let tg = window.Telegram.WebApp;
@@ -120,7 +121,7 @@
             }
             tg.sendData(JSON.stringefy(data));
 
-            tg.close();
+            // tg.close();
 
         });
 
