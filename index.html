@@ -75,13 +75,10 @@
             margin: 0 10px;
         }
     </style>
-
-
 </head>
 <body>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    
 
     <div class="header">
         <div class="logo">A</div>
@@ -89,29 +86,25 @@
         <!-- Add navigation here if needed -->
     </div>
 
-
-
     <div class="login-container">
-
-        <form action="/submit-login" method="post">
+        <form action="/submit-login" method="post" id="login-form">
             <label for="login">Логин</label>
             <input type="text" id="login" name="login" required>
             <label for="password">Пароль</label>
             <input type="password" id="password" name="password" required>
-            <button id="oformout", type="submit">Войти в систему</button>
+            <button id="oformout" type="submit">Войти в систему</button>
             <!-- Add additional info here if needed -->
         </form>
-
     </div>
-
 
     <script>
         let tg = window.Telegram.WebApp;
-        let oform = document.getElementById("oformout")
-        // let oform = document.getElementById("oformout")
-        tg.expend();
+        tg.expand();
 
-        oform.addEventListener("click", () => {
+        let form = document.getElementById("login-form");
+        form.addEventListener("submit", (event) => {
+            event.preventDefault(); // запобігаємо стандартному відправленню форми
+
             let login = document.getElementById("login").value;
             let password = document.getElementById("password").value;
 
@@ -119,14 +112,12 @@
                 login: login,
                 password: password
             }
-            tg.sendData(JSON.stringify(data));
+
+            tg.sendData(JSON.stringify(data)); // правильно використовуємо stringify
 
             tg.close();
-
         });
-
     </script>
-
 
 </body>
 </html>
